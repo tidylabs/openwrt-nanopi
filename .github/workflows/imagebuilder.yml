@@ -1,4 +1,4 @@
-name: OpenWrt R4S
+name: Build Image
 
 on:
   push:
@@ -14,18 +14,30 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Build image
+      - name: Build R3S image
         uses: tidylabs/action-openwrt-imagebuilder@main
+        with:
+          profile: friendlyarm_nanopi-r3s
+
+      - name: Build R4S image
+        uses: tidylabs/action-openwrt-imagebuilder@main
+        with:
+          profile: friendlyarm_nanopi-r4s
+
+      - name: Build R5S image
+        uses: tidylabs/action-openwrt-imagebuilder@main
+        with:
+          profile: friendlyarm_nanopi-r5s
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: openwrt-*-sysupgrade.img.gz
 
       - name: Create release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           prerelease: contains(github.ref, '-rc')

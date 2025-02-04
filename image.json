@@ -1,5 +1,5 @@
 {
-    "version": "23.05.5",
+    "version": "24.10.0",
     "target": "rockchip/armv8",
     "profile": "friendlyarm_nanopi-r4s",
     "packages": [
