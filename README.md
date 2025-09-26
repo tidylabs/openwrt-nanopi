@@ -1,4 +1,4 @@
-# OpenWrt images for the NanoPi R3S/R4S/R5S
+# OpenWrt images for FriendlyElec NanoPi boards
 
 ## Features
 - Created from official builds using OpenWrt's imagebuilder.

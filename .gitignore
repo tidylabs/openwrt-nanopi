@@ -1,0 +1,4 @@
+*.img*
+*.tar*
+dist/
+openwrt-imagebuilder-*/
